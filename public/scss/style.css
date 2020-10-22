@@ -1,0 +1,69 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: lightblue;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.header .logo {
+  padding: 0 70px;
+}
+.header nav {
+  position: relative;
+}
+.header nav .nav {
+  display: flex;
+  justify-content: center;
+  padding: 0 70px;
+}
+.header nav .nav li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+  text-align: center;
+  list-style: none;
+}
+.header nav .nav li:hover, .header nav .nav li:active {
+  background: red;
+}
+.header nav .nav li .dropdown-arrow {
+  margin-left: 5px;
+}
+.header nav .nav li a {
+  text-decoration: none;
+}
+.header nav .nav li a img {
+  width: 100%;
+  height: 100%;
+}
+.header nav .nav li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: calc(100% + 40px);
+  display: none;
+  background: orange;
+}
+.header nav .nav li ul li {
+  padding: 10px;
+}
+.header nav .nav li:hover ul {
+  display: block;
+  background: green;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=style.css.map */

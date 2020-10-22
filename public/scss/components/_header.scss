@@ -1,0 +1,80 @@
+@import '../config/index.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: $primary-color;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+  .logo {
+    padding: 0 $horizontal-padding;
+  }
+
+  nav {
+    position: relative;
+    .nav {
+      display: flex;
+      justify-content: center;
+
+      padding: 0 $horizontal-padding;
+
+      li {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        height: 100%;
+        padding: $general-padding + 6px;
+        text-align: center;
+        list-style: none;
+
+        &:hover,
+        &:active {
+          background: red;
+        }
+
+        .dropdown-arrow {
+          margin-left: 5px;
+        }
+
+        a {
+          text-decoration: none;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        ul {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: calc(100% + 40px);
+
+          display: none;
+          background: orange;
+
+          li {
+            padding: $general-padding;
+          }
+        }
+
+        &:hover ul {
+          display: block;
+          background: green;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+
+    padding: 15px;
+  }
+}
