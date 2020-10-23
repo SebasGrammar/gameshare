@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Test = require('../models/test');
+const User = require('../models/user'); // This is for testing purposes. Delete later
 
 const { showIndex, showTest } = require('../controllers/test');
 const { getTests, getTest } = require('../middleware/test');
@@ -20,6 +21,21 @@ router
       })
     );
   });
+
+router.route('/add').put(async function (req, res) {
+  const user = await User.findByIdAndUpdate(
+    '5f9253dd24ee550ddc8f4504',
+    req.body
+  );
+  // const game = await Test.findById()
+
+  console.log(req.body);
+
+  res.status(200).send({
+    success: true,
+    message: `Added game to favs.`
+  });
+});
 
 router.route('/:slug').get(getTest, showTest);
 

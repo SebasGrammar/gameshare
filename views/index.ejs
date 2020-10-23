@@ -1,14 +1,25 @@
 <div class="content">
-    <div class="grid">
-        <% tests.forEach(test => { %>
-            <div class="card">
-                <div class="title">
-                    <h5></a href="<%= `http://localhost:3027/api/v1/test/${test._id}` %>"><%= test.name %></a></h5>
-                    <a href="<%= `http://localhost:3027/api/v1/test/${test.slug}` %>">Read more</a>
-                </div>
-                <img src="<%= test.avatar %>" class="game-cover">
-            </div>       
-        <% }); %>
+
+    <div class="main">
+        <div class="meta">
+            <h1 class="title">My games</h1>
+            <div class="buttons">
+                <button>Add game</button>
+            </div>
+        </div>
+        
+        <div class="grid">
+            <% tests.forEach(test => { %>
+                <div class="card">
+                    <div class="title">
+                        <h5></a href="<%= `http://localhost:3027/api/v1/test/${test._id}` %>"><%= test.name %></a></h5>
+                        <a href="<%= `http://localhost:3027/api/v1/test/${test.slug}` %>">Read more</a>
+                    </div>
+                    <img src="<%= test.avatar %>" class="game-cover">
+                    <a href="<%= `http://localhost:3027/api/v1/test?_method=PUT` %>">add</a>
+                </div>       
+            <% }); %>
+        </div>
     </div>
     <%- include("../partials/sidebar/sidebar.ejs") -%>
 </div>
