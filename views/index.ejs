@@ -16,7 +16,34 @@
                         <a href="<%= `http://localhost:3027/api/v1/test/${test.slug}` %>">Read more</a>
                     </div>
                     <img src="<%= test.avatar %>" class="game-cover">
-                    <a href="<%= `http://localhost:3027/api/v1/test?_method=PUT` %>">add</a>
+                    <!-- <form action="http://localhost:3027/api/v1/test/add?_method=PUT" method="POST">
+                        <input type="hidden" name="id" id="id" value="<%= `${test._id}` %>">
+                        <input onclick="" type="submit" value="Like" />
+                    </form> -->
+                    
+                <button data-id="<%= test._id %>" onclick="(() => {
+                    
+                    
+                    /** **/
+                    // const url = `http://localhost:3027/api/v1/test/far_cry_3`
+                    const url = `http://localhost:3027/api/v1/test/5f931a3bfd0ebd1a646ae168`
+                    const params = {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                           game: this.dataset.id
+                        })
+                    }
+
+                    fetch(url, params).then(result => {
+                        console.log(result)
+                    })
+
+                    /** **/
+
+                    })()">Like</button>
                 </div>       
             <% }); %>
         </div>
