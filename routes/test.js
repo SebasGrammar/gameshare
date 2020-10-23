@@ -3,21 +3,25 @@ const router = express.Router();
 
 const Test = require('../models/test');
 
-const { showIndex } = require('../controllers/test');
+const { showIndex, showTest } = require('../controllers/test');
+const { getTests, getTest } = require('../middleware/test');
 
 router
   .route('/')
-  .get(showIndex)
+  .get(getTests, showIndex)
   .post(function (req, res) {
+    let { name, avatar } = req.body;
     console.log(
       Test.create({
-        name: 'Lol',
-        avatar: 'no-avatar.png'
+        name,
+        avatar
       }).then((data) => {
         res.status(200).send(data);
       })
     );
   });
+
+router.route('/:slug').get(getTest, showTest);
 
 router.route('/:id').put(function (req, res) {
   console.log(req.body, req.params.id);

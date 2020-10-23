@@ -22,17 +22,8 @@
       /* Note, you may want to position the checkbox over top the label and set the opacity to zero instead. It can be better for accessibilty on some touch devices for discoverability. */
     }
 
-    div {
-      background: blue;
-    }
-
-    #toggle {
-      padding: 5px;
-      background: lightcoral;
-    }
-
-    #toggle:checked ~ .fuck {
-      background: maroon;
+    label {
+      display: none;
     }
 
     .nav {
@@ -95,6 +86,37 @@
 @media screen and (max-width: 600px) {
   header {
     flex-direction: column;
-    padding: 15px;
+
+    .logo {
+      padding: 10px !important;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      label {
+        display: block !important;
+      }
+
+      #toggle:checked ~ .nav {
+        display: flex !important; // If I check the box and resize the screen back to 0, then resize it down again... the menu will appear deployed. Gotta fix that!
+      }
+
+      .nav {
+        // display: none !important;
+        padding: 0 !important;
+
+        .hide {
+          display: none;
+        }
+
+        li {
+          ul {
+            // top: 0 !important;
+            // right: 100% !important;
+            // left: auto !important;
+          }
+        }
+      }
+    }
   }
 }

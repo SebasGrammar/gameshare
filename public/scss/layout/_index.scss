@@ -1,0 +1,43 @@
+@import '../../scss/config/index.scss';
+
+.content {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+
+  .grid {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(4, 150px);
+    justify-content: center;
+    
+
+    padding: $general-padding + 20;
+
+    .card {
+      //   display: flex;
+      //   flex-direction: column;
+      //   justify-content: center;
+      display: grid;
+      grid-template-rows: 55px auto auto;
+
+      width: 100%;
+
+      .game-cover {
+        width: 100px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    grid-template-columns: 2fr 1fr;
+
+    .grid {
+        grid-gap: 40px;
+        grid-template-columns: repeat(2, 100px);
+    }
+
+  }
+}

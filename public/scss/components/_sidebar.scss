@@ -1,0 +1,15 @@
+.sidebar {
+  
+  border-left: 1px solid lightblue;
+  .platforms {
+    li {
+      padding: 10px 7px;
+
+      list-style: none;
+
+      &:hover {
+        background: red;
+      }
+    }
+  }
+}
