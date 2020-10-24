@@ -15,35 +15,33 @@
                         <h5></a href="<%= `http://localhost:3027/api/v1/test/${test._id}` %>"><%= test.name %></a></h5>
                         <a href="<%= `http://localhost:3027/api/v1/test/${test.slug}` %>">Read more</a>
                     </div>
-                    <img src="<%= test.avatar %>" class="game-cover">
-                    <!-- <form action="http://localhost:3027/api/v1/test/add?_method=PUT" method="POST">
-                        <input type="hidden" name="id" id="id" value="<%= `${test._id}` %>">
-                        <input onclick="" type="submit" value="Like" />
-                    </form> -->
-                    
-                <button data-id="<%= test._id %>" onclick="(() => {
-                    
-                    
-                    /** **/
-                    // const url = `http://localhost:3027/api/v1/test/far_cry_3`
-                    const url = `http://localhost:3027/api/v1/test/5f931a3bfd0ebd1a646ae168`
-                    const params = {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                           game: this.dataset.id
+                    <img src="<%= test.avatar %>" class="game-cover">                    
+                    <button data-id="<%= test._id %>" onclick="(() => {
+
+                        /** **/
+                        
+                        const url = `http://localhost:3027/api/v1/test/5f93577b21443d3f58cde966`
+                        const params = {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                            game: this.dataset.id
+                            })
+                        }
+
+                        fetch(url, params).then(result => {
+                            console.log(result.json())
                         })
-                    }
 
-                    fetch(url, params).then(result => {
-                        console.log(result)
-                    })
+                        /** **/
 
-                    /** **/
-
-                    })()">Like</button>
+                    })()"><% if(likes.includes(test._id)){ %>
+   Unlike
+ <% } else{ %>  
+   Like
+<% } %></button>
                 </div>       
             <% }); %>
         </div>

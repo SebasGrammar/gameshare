@@ -47,7 +47,9 @@ mongoose
   });
 
 const test = require('./routes/test');
+const users = require('./routes/user');
 app.use('/api/v1/test', test);
+app.use('/api/v1/users', users);
 
 const server = app.listen(
   PORT,

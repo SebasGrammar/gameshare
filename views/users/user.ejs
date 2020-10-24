@@ -1,0 +1,8 @@
+<h1><%= user.name %></h1>
+<h1>My games</h1>
+<% user.games.forEach(game => { %>
+<div class="container">
+  <h3><%= game.name %></h3>
+  <img src="<%= game.avatar %>" alt="" style="width: 100px"/>
+</div>
+<% }); %>
